@@ -1,0 +1,11 @@
+packages/
+*.xml
+*.dll
+*.bin
+*.cache
+*.pdb
+Temporary*
+*.exe
+*.manifest
+bin/
+obj/
