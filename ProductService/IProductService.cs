@@ -25,5 +25,8 @@ namespace ProductService
 
         [OperationContract]
         int AddProduct(Product product);
+
+        [OperationContract]
+        bool DecreaseProductCount(int id, int count);
     }
 }

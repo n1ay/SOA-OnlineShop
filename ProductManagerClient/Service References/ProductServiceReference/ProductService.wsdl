@@ -37,6 +37,12 @@
   <wsdl:message name="IProductService_AddProduct_OutputMessage">
     <wsdl:part name="parameters" element="tns:AddProductResponse" />
   </wsdl:message>
+  <wsdl:message name="IProductService_DecreaseProductCount_InputMessage">
+    <wsdl:part name="parameters" element="tns:DecreaseProductCount" />
+  </wsdl:message>
+  <wsdl:message name="IProductService_DecreaseProductCount_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DecreaseProductCountResponse" />
+  </wsdl:message>
   <wsdl:portType name="IProductService">
     <wsdl:operation name="GetProduct">
       <wsdl:input wsaw:Action="http://tempuri.org/IProductService/GetProduct" message="tns:IProductService_GetProduct_InputMessage" />
@@ -57,6 +63,10 @@
     <wsdl:operation name="AddProduct">
       <wsdl:input wsaw:Action="http://tempuri.org/IProductService/AddProduct" message="tns:IProductService_AddProduct_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IProductService/AddProductResponse" message="tns:IProductService_AddProduct_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DecreaseProductCount">
+      <wsdl:input wsaw:Action="http://tempuri.org/IProductService/DecreaseProductCount" message="tns:IProductService_DecreaseProductCount_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IProductService/DecreaseProductCountResponse" message="tns:IProductService_DecreaseProductCount_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_IProductService" type="tns:IProductService">
@@ -99,6 +109,15 @@
     </wsdl:operation>
     <wsdl:operation name="AddProduct">
       <soap:operation soapAction="http://tempuri.org/IProductService/AddProduct" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DecreaseProductCount">
+      <soap:operation soapAction="http://tempuri.org/IProductService/DecreaseProductCount" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

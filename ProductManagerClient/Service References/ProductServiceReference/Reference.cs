@@ -44,6 +44,12 @@ namespace ProductManagerClient.ProductServiceReference {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IProductService/AddProduct", ReplyAction="http://tempuri.org/IProductService/AddProductResponse")]
         System.Threading.Tasks.Task<int> AddProductAsync(ProductDatabase.Product product);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IProductService/DecreaseProductCount", ReplyAction="http://tempuri.org/IProductService/DecreaseProductCountResponse")]
+        bool DecreaseProductCount(int id, int count);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IProductService/DecreaseProductCount", ReplyAction="http://tempuri.org/IProductService/DecreaseProductCountResponse")]
+        System.Threading.Tasks.Task<bool> DecreaseProductCountAsync(int id, int count);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -111,6 +117,14 @@ namespace ProductManagerClient.ProductServiceReference {
         
         public System.Threading.Tasks.Task<int> AddProductAsync(ProductDatabase.Product product) {
             return base.Channel.AddProductAsync(product);
+        }
+        
+        public bool DecreaseProductCount(int id, int count) {
+            return base.Channel.DecreaseProductCount(id, count);
+        }
+        
+        public System.Threading.Tasks.Task<bool> DecreaseProductCountAsync(int id, int count) {
+            return base.Channel.DecreaseProductCountAsync(id, count);
         }
     }
 }

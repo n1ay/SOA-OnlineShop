@@ -42,5 +42,22 @@ namespace ProductService
             logger.Write("Add id=" + product.Id, LogLevel.INFO);
             return db.Add(product);
         }
+
+        public bool DecreaseProductCount(int id, int decreaseCount)
+        {
+            logger.Write("Decrease id=" + id + " decrease count=" + decreaseCount, LogLevel.INFO);
+            Product product = db.Get(id);
+            if (product != null)
+            {
+                product.Count -= decreaseCount;
+                if (product.Count >= 0)
+                {
+                    db.Update(product);
+                    return true;
+                }
+            }
+            return false;
+        }
+        
     }
 }
